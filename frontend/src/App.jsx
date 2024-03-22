@@ -1,6 +1,6 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import ChatUI from './components/ChatPage'
+import React from "react";
+import Navbar from "./components/Navbar";
+import ChatUI from "./components/ChatPage";
 
 const App = () => {
 	return (
@@ -8,7 +8,7 @@ const App = () => {
 			<Navbar />
 			<ChatUI />
 		</div>
-	)
-}
+	);
+};
 
-export default App
+export default App;
