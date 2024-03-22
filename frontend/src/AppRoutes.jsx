@@ -34,6 +34,10 @@ const AppRoutes = () => {
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="/login" element={<Login />} />
+			<Route
+				path="/login2"
+				element={<ProtectedRoute element={<Login />} />}
+			/>
 			{/* <Route path="/contact" element={<Contact />} />
 			<Route
 				path="/dashboardv2/*"
