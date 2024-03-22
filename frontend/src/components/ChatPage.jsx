@@ -18,6 +18,20 @@ const ChatUI = () => {
     localStorage.setItem('chatMessages', JSON.stringify(messages));
   }, [messages]);
 
+  const isLegalQuestion = (input) => {
+    // Implement your function to check if the input is related to legal data assistance
+  };
+
+  const fetchResponseFromAPI = async (input) => {
+    if (isLegalQuestion(input)) {
+      const response = await fetch(`https://api.gemini.com/v1/legal/${input}`);
+      const data = await response.json();
+      return data.message;
+    } else {
+      return 'I can only assist with legal data questions.';
+    }
+  };
+
   const handleMessageSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim() !== '') {

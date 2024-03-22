@@ -83,15 +83,19 @@ function ImageAnalysis() {
 	}
 
 	return (
-		<div>
-			<h1>Upload an image</h1>
-			<input
-				type="file"
-				onChange={analyzeImage}
-				accept="image/jpeg, image/png"
-			/>
-			<div>{output && <pre>{output}</pre>}</div>
+		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-800">
+		<h1 className="mb-8 text-3xl font-bold">Upload an image</h1>
+		<input
+		  type="file"
+		  onChange={analyzeImage}
+		  accept="image/jpeg, image/png"
+		  className="mb-8 p-2 border border-gray-300 rounded-md"
+		/>
+		<div className="w-3/4 p-4 border border-gray-300 rounded-md bg-white shadow-lg overflow-auto whitespace-pre-wrap">
+		  {/* Replace 'output' with your actual output state */}
+		  {output && <pre>{output}</pre>}
 		</div>
+	  </div>
 	);
 }
 
