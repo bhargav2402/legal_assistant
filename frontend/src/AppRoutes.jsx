@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./ErrorPage";
 import Login from "./Login/Login";
+import Docs from "./components/Docs";
 // import Contact from "./Contact";
 // import Dashv2 from "./MainDashboard/Dashv2";
 import { Navigate } from "react-router-dom";
@@ -37,6 +38,10 @@ const AppRoutes = () => {
 			<Route
 				path="/login2"
 				element={<ProtectedRoute element={<Login />} />}
+			/>
+			<Route
+				path="/docs"
+				element={<ProtectedRoute element={<Docs />} />}
 			/>
 			{/* <Route path="/contact" element={<Contact />} />
 			<Route

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Message from './Message'; // Assuming you have a Message component
-import { BsFillChatDotsFill, BsFillChatSquareDotsFill } from "react-icons/bs"; // Importing chat icons from react-icons
+import Message from './Message'; 
+import { BsFillChatDotsFill, BsFillChatSquareDotsFill } from "react-icons/bs";
 
 const ChatUI = () => {
   const [messages, setMessages] = useState([]);
@@ -37,7 +37,6 @@ const ChatUI = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-200">
-      {/* Header */}
       <header className="bg-blue-900 text-white p-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold">Chat AI</h1>
         <div>
@@ -51,7 +50,7 @@ const ChatUI = () => {
         {showHistory && (
           <div className="w-64 bg-gray-100 h-[80vh] px-4 py-0 pt-0 border-r-2 border-gray-300 overflow-y-auto">
             <h2 className="text-xl font-bold mb-4">Chat History</h2>
-            {/* Here you can map over the messages and display them */}
+
           </div>
         )}
         <div className="flex-1 p-4 overflow-y-auto">
@@ -61,7 +60,6 @@ const ChatUI = () => {
         </div>
       </div>
 
-      {/* Input area */}
       <form onSubmit={handleMessageSubmit} className="bg-gray-300 p-4 flex items-center">
         <input
           type="text"
