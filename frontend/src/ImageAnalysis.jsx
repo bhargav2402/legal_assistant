@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
 
 function ImageAnalysis() {
 	const [output, setOutput] = useState("");
 
-	const API_KEY = "YOUR_GOOGLE_API_KEY_HERE"; // Replace with your actual API key
+	const API_KEY = "YOUR_GOOGLE_API_KEY_HERE";
 
 	async function analyzeImage(event) {
 		const file = event.target.files[0];
@@ -22,7 +23,7 @@ function ImageAnalysis() {
 						{
 							parts: [
 								{
-									text: "You are an AI legal advisor tasked with summarizing the contents of a legal agreement provided in the form of an image or PDF document. Your task is to analyze the document and generate a concise summary highlighting the key provisions, clauses, and any important terms or conditions.Please begin by identifying the type of agreement (e.g., contract, lease, NDA) and provide a brief overview of its purpose. Then, systematically go through the document, extracting and summarizing each major section or clause. Focus on essential information such as obligations of the parties involved, payment terms, termination conditions, dispute resolution mechanisms, and any other significant provisions.Your summary should be clear, accurate, and comprehensive, providing the reader with a thorough understanding of the agreement's terms without unnecessary technical jargon. Additionally, if there are any ambiguous or complex language constructs within the document, please clarify them as needed.Keep in mind that the goal is to provide a succinct yet informative summary that allows the reader to grasp the essence of the agreement quickly and efficiently. Ensure that the summary captures the essence of the document while condensing its contents into a digestible format",
+									text: "Imagine you have an image containing text, whether it's handwritten or printed. Your task is to accurately transcribe the text from the image into plain text format. As you describe the content, pay attention to details such as handwriting style, font (if printed), layout, and any other unique features that may impact readability. Your goal is to provide a clear and precise transcription of the text, ensuring that the converted text reflects the original content as faithfully as possible.",
 								},
 								{
 									inlineData: {
@@ -84,18 +85,19 @@ function ImageAnalysis() {
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-800">
-		<h1 className="mb-8 text-3xl font-bold">Upload an image</h1>
-		<input
-		  type="file"
-		  onChange={analyzeImage}
-		  accept="image/jpeg, image/png"
-		  className="mb-8 p-2 border border-gray-300 rounded-md"
-		/>
-		<div className="w-3/4 p-4 border border-gray-300 rounded-md bg-white shadow-lg overflow-auto whitespace-pre-wrap">
-		  {/* Replace 'output' with your actual output state */}
-		  {output && <pre>{output}</pre>}
+			<h1 className="mb-8 text-3xl font-bold">Upload an image</h1>
+			<input
+				type="file"
+				onChange={analyzeImage}
+				accept="image/jpeg, image/png"
+				className="mb-8 p-2 border border-gray-300 rounded-md"
+			/>
+			<div className="w-3/4 p-4 border border-gray-300 rounded-md bg-white shadow-lg overflow-auto whitespace-pre-wrap">
+				<div className="markdown-container">
+					<ReactMarkdown>{output}</ReactMarkdown>
+				</div>
+			</div>
 		</div>
-	  </div>
 	);
 }
 
