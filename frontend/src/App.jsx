@@ -1,8 +1,13 @@
 import React from 'react'
+import Navbar from './components/Navbar'
+import ChatUI from './components/ChatPage'
 
 const App = () => {
 	return (
-		<div>App</div>
+		<div>
+			<Navbar />
+			<ChatUI />
+		</div>
 	)
 }
 
