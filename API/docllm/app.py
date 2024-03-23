@@ -3,20 +3,15 @@ from langchain.vectorstores.cassandra import Cassandra
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.embeddings import OpenAIEmbeddings
-
-# Support for dataset retrieval with Hugging Face
-from datasets import load_dataset
-
-# With CassIO, the engine powering the Astra DB integration in LangChain,
-# you will also initialize the DB connection:
-import cassio
-from PyPDF2 import PdfReader
-from typing_extensions import Concatenate
 from langchain.text_splitter import CharacterTextSplitter
+from datasets import load_dataset
+from PyPDF2 import PdfReader
+from flask import Flask, request, jsonify
+import cassio
 
-ASTRA_DB_APPLICATION_TOKEN = "YOUR_ASTRA_DB_TOKEN_HERE" # enter the "AstraCS:..." string found in in your Token JSON file
-ASTRA_DB_ID = "9935c2ce-3c5b-494f-8d72-736bd5d5bc82" # enter your Database ID
-OPENAI_API_KEY = "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" # enter your OpenAI key
+ASTRA_DB_APPLICATION_TOKEN = "YOUR_ASTRA_DB_TOKEN_HERE"
+ASTRA_DB_ID = "9935c2ce-3c5b-494f-8d72-736bd5d5bc82"
+OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE"
 
 pdfreader = PdfReader('./book_1.pdf')
 raw_text = ''
@@ -37,7 +32,6 @@ astra_vector_store = Cassandra(
     keyspace=None,
 )
 
-# We need to split the text using Character Text Split such that it should not increase token size
 text_splitter = CharacterTextSplitter(
     separator="\n",
     chunk_size=800,
@@ -55,12 +49,8 @@ def inference(query_text):
     answer = astra_vector_index.query(query_text, llm=llm).strip()
     return answer
 
-# Flask app setup
-from flask import Flask, request, jsonify
-
 app = Flask(__name__)
 
-# Define endpoint for asking questions
 @app.route('/ask', methods=['POST'])
 def ask_question():
     data = request.json
