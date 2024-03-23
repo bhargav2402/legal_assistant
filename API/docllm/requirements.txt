@@ -4,3 +4,6 @@ langchain
 openai
 tiktoken
 PyPDF2
+gunicorn
+flask
+langchain-community
