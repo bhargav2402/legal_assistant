@@ -12,7 +12,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./components/Loading";
 import ImageAnalysis from "./ImageAnalysis";
 import Search from "./Search";
-// import Trx from "./Trx";
 
 const ProtectedRoute = ({ element }) => {
 	const { user } = useAuth0();
@@ -37,38 +36,35 @@ const AppRoutes = () => {
 
 	return !isLoading ? (
 		<>
-			<Navbar />
-			<Routes>
-				<Route path="/" element={<App />} />
-				<Route path="/login" element={<Login />} />
-				<Route
-					path="/login2"
-					element={<ProtectedRoute element={<Login />} />}
-				/>
+		<Navbar /> 
+		<Routes>
+			<Route path="/" element={<App />} />
+			<Route path="/login" element={<Login />} />
+			<Route
+				path="/login2"
+				element={<ProtectedRoute element={<Login />} />}
+			/>
 
-				<Route
-					path="/docs"
-					element={<ProtectedRoute element={<Docs />} />}
-				/>
-				<Route
-					path="/search"
-					element={<ProtectedRoute element={<Search />} />}
-				/>
-				{/* <Route
-					path="/trx"
-					element={<ProtectedRoute element={<Trx />} />}
-				/> */}
-				{/* <Route path="/contact" element={<Contact />} />
+			<Route
+				path="/docs"
+				element={<ProtectedRoute element={<Docs />} />}
+			/>
+			<Route
+				path="/search"
+				element={<Search />} 
+			/>
+			{/* <Route path="/contact" element={<Contact />} />
 			<Route
 				path="/dashboardv2/*"
 				element={<ProtectedRoute element={<Dashv2 />} />}
 			/> */}
-				<Route path="*" element={<ErrorPage />} />
-			</Routes>
-		</>
+			<Route path="*" element={<ErrorPage />} />
+		</Routes>
+		</>	
 	) : (
 		<Loading />
 	);
+	
 };
 
 export default AppRoutes;
