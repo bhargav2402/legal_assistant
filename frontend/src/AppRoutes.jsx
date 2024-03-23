@@ -11,6 +11,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./components/Loading";
 import ImageAnalysis from "./ImageAnalysis";
+import Search from "./Search";
 
 const ProtectedRoute = ({ element }) => {
 	const { user } = useAuth0();
@@ -43,14 +44,14 @@ const AppRoutes = () => {
 				path="/login2"
 				element={<ProtectedRoute element={<Login />} />}
 			/>
-		
+
 			<Route
 				path="/docs"
 				element={<ProtectedRoute element={<Docs />} />}
 			/>
 			<Route
-				path="/img"
-				element={<ProtectedRoute element={<ImageAnalysis />} />}
+				path="/search"
+				element={<ProtectedRoute element={<Search />} />}
 			/>
 			{/* <Route path="/contact" element={<Contact />} />
 			<Route
@@ -67,6 +68,5 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-
 
 // YOUR_GOOGLE_API_KEY_HERE
