@@ -1,0 +1,10 @@
+flask 
+groq
+langchain
+langchain-groq
+python-dotenv
+flask-cors
+gunicorn
+flask-session
+uuid
+cachelib
