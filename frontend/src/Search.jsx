@@ -67,7 +67,7 @@ function Search() {
 	};
 
 	return (
-		<div>
+		<div className="flex flex-col items-center">
 			<h1 className="text-2xl font-bold mb-4">Search Documents</h1>
 			<form onSubmit={handleSearch} className="mb-4">
 				<input
@@ -84,7 +84,7 @@ function Search() {
 					Search
 				</button>
 			</form>
-			<div>
+			<div className="flex flex-col items-center">
 				{docs.length > 0 ? (
 					<>
 						{docs.map((doc) => (
@@ -95,7 +95,7 @@ function Search() {
 								headline={doc.headline}
 							/>
 						))}
-						<div>
+						<div className="flex items-center">
 							<button
 								onClick={() => handlePageChange(-1)}
 								disabled={pageNum === 1}
