@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 
 function Document({ title, publishDate, headline }) {
+	const encodedTitle = encodeURIComponent(title);
+	const googleSearchLink = `https://www.google.com/search?q=${encodedTitle}`;
+
 	return (
-		<div className="border border-gray-500 rounded-md p-4 mb-4">
-			<h2 className="text-lg font-semibold mb-2" dangerouslySetInnerHTML={{ __html: title }}></h2>
+		<div className="border border-gray-300 rounded-md p-4 mb-4">
+			<h2 className="text-lg font-semibold mb-2">
+				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer">
+					{title}
+				</a>
+			</h2>
 			<p className="text-sm text-gray-600 mb-1">
 				<strong>Published Date:</strong> {publishDate}
 			</p>
@@ -15,7 +22,7 @@ function Document({ title, publishDate, headline }) {
 function Search() {
 	const [formInput, setFormInput] = useState("");
 	const [docs, setDocs] = useState([]);
-	const [pageNum, setPageNum] = useState(1); 
+	const [pageNum, setPageNum] = useState(1); // State for current page number
 
 	const handleInputChange = (event) => {
 		setFormInput(event.target.value);
@@ -32,7 +39,7 @@ function Search() {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ formInput, pageNum }), 
+					body: JSON.stringify({ formInput, pageNum }), // Include pageNum in the request
 				}
 			);
 
@@ -67,24 +74,30 @@ function Search() {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center h-[100vh] overflow-auto bg-gray-100">
-			<h1 className="text-2xl font-bold mb-4">Search Documents</h1>
-			<form onSubmit={handleSearch} className="mb-4 w-full max-w-lg">
-				<input
-					type="text"
-					value={formInput}
-					onChange={handleInputChange}
-					placeholder="Enter your search query..."
-					className="border border-gray-500 rotext-2xl font-bold mb-4unded-md px-4 py-2 w-full"
-				/>
-				<button
-					type="submit"
-					className="bg-blue-500 text-white px-4 py-2 rounded-md mt-2 w-full"
-				>
-					Search
-				</button>
-			</form>
-			<div className="w-full max-w-7xl">
+		<div className="flex flex-col items-center bg-gray-100">
+			<div className="sticky top-0 z-50 bg-white py-2 w-full">
+				<div className="flex justify-center">
+					<h1 className="text-2xl font-bold mb-4">Search Documents</h1>
+				</div>
+				<div className="flex justify-center">
+					<form onSubmit={handleSearch} className="mb-4 w-full max-w-lg flex">
+						<input
+							type="text"
+							value={formInput}
+							onChange={handleInputChange}
+							placeholder="Enter your search query..."
+							className="border border-gray-500 rounded-l-md px-4 py-2 w-full"
+						/>
+						<button
+							type="submit"
+							className="bg-blue-500 text-white px-4 py-2 rounded-r-md"
+						>
+							Search
+						</button>
+					</form>
+				</div>
+			</div>
+			<div className="w-full max-w-7xl mt-4 mx-auto">
 				{docs.length > 0 ? (
 					<>
 						{docs.map((doc) => (
