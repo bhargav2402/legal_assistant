@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import ChatUI from "./components/ChatPage";
+import ChatPage from "./ChatPage";
 
 const App = () => {
 	return (
 		<div>
 			<Navbar />
-			<ChatUI />
+			<ChatPage />
 		</div>
 	);
 };
