@@ -13,7 +13,7 @@ export function MessageInput({
 			<input
 				value={userQuestion}
 				onChange={(e) => setUserQuestion(e.target.value)}
-				placeholder="Ask Quickie..."
+				placeholder="Ask CodeCatalysts..."
 				className="flex-1 border border-gray-500 rounded-lg p-2 mr-2"
 			/>
 			<button
