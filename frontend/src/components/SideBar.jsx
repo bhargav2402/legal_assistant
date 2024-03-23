@@ -78,7 +78,7 @@ function Sidebar({
 								<div className="text-white bg-gray-900 rounded-full p-1">
 									<GiAtomicSlashes size={15} />
 								</div>
-								A quickie please
+								Ask here
 							</div>
 							<MdOutlineInput size={20} />
 						</button>

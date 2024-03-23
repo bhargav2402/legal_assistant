@@ -42,7 +42,7 @@ function ChatPage() {
         console.log(response);
         const message = { author: "You", content: userQuestion };
         const aiResponse = {
-          author: "Quickie",
+          author: "CodeCatalysts",
           content: response.data.content,
         };
         setChatHistory([...chatHistory, message, aiResponse]);

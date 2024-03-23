@@ -15,6 +15,7 @@ function Document({ title, publishDate, headline }) {
 function Search() {
 	const [formInput, setFormInput] = useState("");
 	const [docs, setDocs] = useState([]);
+	const [pageNum, setPageNum] = useState(1); // State for current page number
 
 	const handleInputChange = (event) => {
 		setFormInput(event.target.value);
@@ -25,18 +26,41 @@ function Search() {
 
 		try {
 			const response = await fetch(
-				"http://127.0.0.1:5000/api/search",
+				`http://127.0.0.1:5000/api/search`,
 				{
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ formInput }),
+					body: JSON.stringify({ formInput, pageNum }), // Include pageNum in the request
 				}
 			);
 
 			const data = await response.json();
 			setDocs(data.docs);
+		} catch (error) {
+			console.error("Error fetching data:", error);
+		}
+	};
+
+	const handlePageChange = async (increment) => {
+		const nextPageNum = pageNum + increment;
+
+		try {
+			const response = await fetch(
+				`http://127.0.0.1:5000/api/search`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ formInput, pageNum: nextPageNum }), // Include nextPageNum in the request
+				}
+			);
+
+			const data = await response.json();
+			setDocs(data.docs);
+			setPageNum(nextPageNum); // Update pageNum state
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
@@ -62,14 +86,29 @@ function Search() {
 			</form>
 			<div>
 				{docs.length > 0 ? (
-					docs.map((doc) => (
-						<Document
-							key={doc.tid}
-							title={doc.title}
-							publishDate={doc.publishdate}
-							headline={doc.headline}
-						/>
-					))
+					<>
+						{docs.map((doc) => (
+							<Document
+								key={doc.tid}
+								title={doc.title}
+								publishDate={doc.publishdate}
+								headline={doc.headline}
+							/>
+						))}
+						<div>
+							<button
+								onClick={() => handlePageChange(-1)}
+								disabled={pageNum === 1}
+								className="mr-2"
+							>
+								Prev
+							</button>
+							<span>Page {pageNum}</span>
+							<button onClick={() => handlePageChange(1)}>
+								Next
+							</button>
+						</div>
+					</>
 				) : (
 					<p>No documents found.</p>
 				)}
