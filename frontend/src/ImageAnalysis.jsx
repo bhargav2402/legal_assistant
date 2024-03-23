@@ -84,15 +84,15 @@ function ImageAnalysis() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-800">
+		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-900">
 			<h1 className="mb-8 text-3xl font-bold">Upload an image</h1>
 			<input
 				type="file"
 				onChange={analyzeImage}
 				accept="image/jpeg, image/png"
-				className="mb-8 p-2 border border-gray-300 rounded-md"
+				className="mb-8 p-2 border border-gray-500 rounded-md"
 			/>
-			<div className="w-3/4 p-4 border border-gray-300 rounded-md bg-white shadow-lg overflow-auto whitespace-pre-wrap">
+			<div className="w-3/4 p-4 border h-96 text-gray-900 border-gray-500 rounded-md bg-gray-300 shadow-lg overflow-auto whitespace-pre-wrap">
 				<div className="markdown-container">
 					<ReactMarkdown>{output}</ReactMarkdown>
 				</div>

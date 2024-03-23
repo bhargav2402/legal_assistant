@@ -5,7 +5,6 @@ import ChatPage from "./ChatPage";
 const App = () => {
 	return (
 		<div>
-			<Navbar />
 			<ChatPage />
 		</div>
 	);

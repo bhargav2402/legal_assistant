@@ -41,15 +41,15 @@ function DisplayOutput() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-10 px-4 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gray-100 text-gray-900 py-0 px-4 flex flex-col items-center justify-center">
       <textarea
-        className="bg-gray-800 text-white p-4 rounded-md mb-4 w-full max-w-xl resize-none"
+        className="bg-gray-300 text-gray-900 py-6 px-2 rounded-md mb-4 w-full max-w-6xl resize-none"
         placeholder="Enter text..."
-        rows={6}
+        rows={8}
         value={inputText}
         onChange={handleInputChange}
       />
-      <div className="flex justify-between w-full max-w-xl">
+      <div className="flex justify-between w-full max-w-6xl">
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md"
           onClick={fetchData}
@@ -58,13 +58,13 @@ function DisplayOutput() {
           {loading ? "Loading..." : "Fetch"}
         </button>
         <button
-          className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md"
+          className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-semibold py-2 px-4 rounded-md"
           onClick={handleClearOutput}
         >
           Clear Output
         </button>
       </div>
-      <div className="bg-gray-800 text-white p-4 rounded-md mt-4 w-full max-w-xl h-64 overflow-auto">
+      <div className="bg-gray-300 text-gray-800 p-6 rounded-md mt-4 w-full max-w-6xl min-h-72 overflow-auto">
         <h1 className="text-xl font-semibold mb-2">Output:</h1>
         {loading ? (
           <p>Loading...</p>

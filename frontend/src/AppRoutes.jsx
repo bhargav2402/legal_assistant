@@ -4,6 +4,7 @@ import App from "./App";
 import ErrorPage from "./ErrorPage";
 import Login from "./Login/Login";
 import Docs from "./components/Docs";
+import Navbar from "./components/Navbar";
 // import Contact from "./Contact";
 // import Dashv2 from "./MainDashboard/Dashv2";
 import { Navigate } from "react-router-dom";
@@ -33,6 +34,8 @@ const AppRoutes = () => {
 	}, [isLoading]);
 
 	return !isLoading ? (
+		<>
+		<Navbar /> 
 		<Routes>
 			<Route path="/" element={<App />} />
 			<Route path="/login" element={<Login />} />
@@ -56,9 +59,11 @@ const AppRoutes = () => {
 			/> */}
 			<Route path="*" element={<ErrorPage />} />
 		</Routes>
+		</>	
 	) : (
 		<Loading />
 	);
+	
 };
 
 export default AppRoutes;

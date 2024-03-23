@@ -92,20 +92,20 @@ function CompareAgg() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-800">
+		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-200 text-gray-900">
 			<h1 className="mb-8 text-3xl font-bold">Upload two images</h1>
 			<div className="flex justify-center space-x-16 mb-8">
 				<input
 					type="file"
 					onChange={(event) => setImage1(event.target.files[0])}
 					accept="image/jpeg, image/png"
-					className="p-2 border border-gray-300 rounded-md"
+					className="p-2 border border-gray-500 rounded-md"
 				/>
 				<input
 					type="file"
 					onChange={(event) => setImage2(event.target.files[0])}
 					accept="image/jpeg, image/png"
-					className="p-2 border border-gray-300 rounded-md"
+					className="p-2 border border-gray-500 rounded-md"
 				/>
 			</div>
 			<button
@@ -134,7 +134,7 @@ function CompareAgg() {
 					)}
 				</div>
 			</div>
-			<div className="w-3/4 p-4 my-8 h-96 border border-gray-300 rounded-md bg-white shadow-lg overflow-auto whitespace-pre-wrap">
+			<div className="w-3/4 p-4 my-8 h-96 border border-gray-500 text-gray-900 rounded-md bg-gray-300 shadow-lg overflow-auto whitespace-pre-wrap">
 				<div className="markdown-container">
 					<ReactMarkdown>{output}</ReactMarkdown>
 				</div>
