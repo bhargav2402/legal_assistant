@@ -6,12 +6,17 @@ function Document({ title, publishDate, headline }) {
 
 	return (
 		<div className="border border-gray-300 rounded-md p-4 mb-4">
+<<<<<<< HEAD
 			<h2 className="text-lg font-semibold mb-2">
 				<a
 					href={googleSearchLink}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
+=======
+			<h2 className="text-lg text-blue-700 font-semibold mb-2">
+				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer">
+>>>>>>> 22aa575e061e5d626e7dc6433641cfbc6de3bf2a
 					{title}
 				</a>
 			</h2>
