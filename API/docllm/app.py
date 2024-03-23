@@ -18,7 +18,7 @@ ASTRA_DB_APPLICATION_TOKEN = "AstraCS:NuZGQHstsNPrEpDcMGGbzOtq:4efa46244c9670657
 ASTRA_DB_ID = "9935c2ce-3c5b-494f-8d72-736bd5d5bc82" # enter your Database ID
 OPENAI_API_KEY = "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" # enter your OpenAI key
 
-pdfreader = PdfReader('/content/CodeCatalysts_2.pdf')
+pdfreader = PdfReader('./book_1.pdf')
 raw_text = ''
 for i, page in enumerate(pdfreader.pages):
     content = page.extract_text()
