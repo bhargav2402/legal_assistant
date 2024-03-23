@@ -19,7 +19,7 @@ export function MessageInput({
 			<button
 				onClick={handleSend}
 				disabled={isSendDisabled} // Disable the button when isSendDisabled is true
-				className={`bg-black hover:bg-gray-800 transition-all duration-300 text-white font-bold py-3 px-4 rounded-lg ${
+				className={`bg-gray-900 hover:bg-gray-800 transition-all duration-300 text-gray-100 font-bold py-3 px-4 rounded-lg ${
 					isSendDisabled ? "opacity-50 cursor-not-allowed" : ""
 				}`} // Apply styles based on the isSendDisabled condition
 			>

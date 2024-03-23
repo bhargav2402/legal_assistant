@@ -71,11 +71,11 @@ function Sidebar({
 					<>
 						<button
 							onClick={handleRefresh}
-							className=" hover:bg-gray-300/70 bg-gray-200 flex justify-between w-full p-2 items-center text-black font-semibold py-3 transition-all duration-300 rounded-lg"
+							className=" hover:bg-gray-300/70 bg-gray-200 flex justify-between w-full p-2 items-center text-gray-900 font-semibold py-3 transition-all duration-300 rounded-lg"
 						>
 							{" "}
 							<div className="flex gap-2">
-								<div className="text-white bg-black rounded-full p-1">
+								<div className="text-white bg-gray-900 rounded-full p-1">
 									<GiAtomicSlashes size={15} />
 								</div>
 								A quickie please

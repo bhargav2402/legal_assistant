@@ -50,7 +50,7 @@ function ChatPage() {
       } catch (error) {
         console.error("Error sending message:", error);
       } finally {
-        setLoading(false); // Set loading state to false after receiving the response
+        setLoading(false); 
       }
     }
   };
@@ -68,7 +68,7 @@ function ChatPage() {
           onClick={() => window.location.reload()}
           className="text-3xl poppins p-5 px-5 cursor-pointer font-semibold"
         >
-          Quickie
+          CodeCatalyst
         </h1>
         <ChatArea
           chatHistory={chatHistory}
