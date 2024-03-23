@@ -1,52 +1,198 @@
 [
-	{"heading": "Plan a trip", "addition": "to Columbia for 5 days"},
-	{"heading": "Cook a new recipe", "addition": "using only three ingredients"},
-	{"heading": "Write a short story", "addition": "set in a post-apocalyptic world"},
-	{"heading": "Design a logo", "addition": "for a fictional tech company"},
-	{"heading": "Create a workout routine", "addition": "for improving flexibility"},
-	{"heading": "Paint a landscape", "addition": "using only primary colors"},
-	{"heading": "Compose a song", "addition": "inspired by a childhood memory"},
-	{"heading": "Learn a new language", "addition": "in 30 days"},
-	{"heading": "Build a birdhouse", "addition": "using recycled materials"},
-	{"heading": "Organize a picnic", "addition": "with friends or family"},
-	{"heading": "Draw a self-portrait", "addition": "in a cartoon style"},
-	{"heading": "Write a poem", "addition": "about the ocean"},
-	{"heading": "Create a budget plan", "addition": "for saving money"},
-	{"heading": "Plant a garden", "addition": "with vegetables and herbs"},
-	{"heading": "Learn a magic trick", "addition": "to impress your friends"},
-	{"heading": "Build a model airplane", "addition": "from scratch"},
-	{"heading": "Write a letter", "addition": "to your future self"},
-	{"heading": "Solve a Rubik's Cube", "addition": "in under 5 minutes"},
-	{"heading": "Design a board game", "addition": "with unique rules"},
-	{"heading": "Create a DIY project", "addition": "using recycled materials"},
-	{"heading": "Write a journal entry", "addition": "about your day"},
-	{"heading": "Learn a musical instrument", "addition": "and play a song"},
-	{"heading": "Paint a portrait", "addition": "of a family member"},
-	{"heading": "Build a sandcastle", "addition": "at the beach"},
-	{"heading": "Cook a gourmet meal", "addition": "for a special occasion"},
-	{"heading": "Create a vision board", "addition": "for your goals"},
-	{"heading": "Write a movie script", "addition": "for a short film"},
-	{"heading": "Design a website", "addition": "for a fictional business"},
-	{"heading": "Learn a dance routine", "addition": "from a music video"},
-	{"heading": "Draw a comic strip", "addition": "with original characters"},
-	{"heading": "Compose a piece of music", "addition": "for piano"},
-	{"heading": "Learn a new skill", "addition": "through online tutorials"},
-	{"heading": "Paint a still life", "addition": "of fruits and vegetables"},
-	{"heading": "Build a model train set", "addition": "with scenery"},
-	{"heading": "Write a short film script", "addition": "based on a dream"},
-	{"heading": "Create a scrapbook", "addition": "with photos and memories"},
-	{"heading": "Design a logo", "addition": "for a charity organization"},
-	{"heading": "Learn a martial art", "addition": "for self-defense"},
-	{"heading": "Cook a themed dinner", "addition": "inspired by a movie"},
-	{"heading": "Write a blog post", "addition": "about a hobby or interest"},
-	{"heading": "Build a model rocket", "addition": "and launch it"},
-	{"heading": "Create an animated GIF", "addition": "using digital art"},
-	{"heading": "Learn a card trick", "addition": "to amaze your friends"},
-	{"heading": "Paint a mural", "addition": "in a public space"},
-	{"heading": "Compose a love letter", "addition": "to someone special"},
-	{"heading": "Design a poster", "addition": "for an upcoming event"},
-	{"heading": "Learn a new recipe", "addition": "from a different culture"},
-	{"heading": "Write a short story", "addition": "set in space"},
-	{"heading": "Create a photo collage", "addition": "of your favorite memories"}
-	
+	{
+		"heading": "What are the legal requirements for planning a trip to Columbia for 5 days?",
+		"addition": "to Columbia for 5 days"
+	},
+	{
+		"heading": "What are the regulations concerning cooking a new recipe using only three ingredients?",
+		"addition": "using only three ingredients"
+	},
+	{
+		"heading": "What legal considerations should be taken into account when writing a short story set in a post-apocalyptic world?",
+		"addition": "set in a post-apocalyptic world"
+	},
+	{
+		"heading": "What are the legal aspects to consider when designing a logo for a fictional tech company?",
+		"addition": "for a fictional tech company"
+	},
+	{
+		"heading": "What legal liabilities exist when creating a workout routine for improving flexibility?",
+		"addition": "for improving flexibility"
+	},
+	{
+		"heading": "What are the legal restrictions for painting a landscape using only primary colors?",
+		"addition": "using only primary colors"
+	},
+	{
+		"heading": "What legal permissions are required when composing a song inspired by a childhood memory?",
+		"addition": "inspired by a childhood memory"
+	},
+	{
+		"heading": "What are the legal obligations in learning a new language in 30 days?",
+		"addition": "in 30 days"
+	},
+	{
+		"heading": "What legal guidelines should be followed when building a birdhouse using recycled materials?",
+		"addition": "using recycled materials"
+	},
+	{
+		"heading": "What legal considerations are necessary when organizing a picnic with friends or family?",
+		"addition": "with friends or family"
+	},
+	{
+		"heading": "What legal permissions are needed to draw a self-portrait in a cartoon style?",
+		"addition": "in a cartoon style"
+	},
+	{
+		"heading": "What are the copyright laws related to writing a poem about the ocean?",
+		"addition": "about the ocean"
+	},
+	{
+		"heading": "What legal steps should be included in creating a budget plan for saving money?",
+		"addition": "for saving money"
+	},
+	{
+		"heading": "What legal regulations pertain to planting a garden with vegetables and herbs?",
+		"addition": "with vegetables and herbs"
+	},
+	{
+		"heading": "What are the legal implications of learning a magic trick to impress friends?",
+		"addition": "to impress your friends"
+	},
+	{
+		"heading": "What legal requirements must be met when building a model airplane from scratch?",
+		"addition": "from scratch"
+	},
+	{
+		"heading": "What legal considerations should be made when writing a letter to your future self?",
+		"addition": "to your future self"
+	},
+	{
+		"heading": "What are the legal aspects of solving a Rubik's Cube in under 5 minutes?",
+		"addition": "in under 5 minutes"
+	},
+	{
+		"heading": "What legal obligations exist when designing a board game with unique rules?",
+		"addition": "with unique rules"
+	},
+	{
+		"heading": "What are the legal requirements for creating a DIY project using recycled materials?",
+		"addition": "using recycled materials"
+	},
+	{
+		"heading": "What legal considerations should be taken into account when writing a journal entry about your day?",
+		"addition": "about your day"
+	},
+	{
+		"heading": "What legal permissions are necessary for learning a musical instrument and playing a song?",
+		"addition": "and play a song"
+	},
+	{
+		"heading": "What legal concerns arise when painting a portrait of a family member?",
+		"addition": "of a family member"
+	},
+	{
+		"heading": "What are the legal regulations for building a sandcastle at the beach?",
+		"addition": "at the beach"
+	},
+	{
+		"heading": "What legal obligations exist when cooking a gourmet meal for a special occasion?",
+		"addition": "for a special occasion"
+	},
+	{
+		"heading": "What legal considerations should be included in creating a vision board for your goals?",
+		"addition": "for your goals"
+	},
+	{
+		"heading": "What legal permissions are required when writing a movie script for a short film?",
+		"addition": "for a short film"
+	},
+	{
+		"heading": "What are the legal aspects to consider when designing a website for a fictional business?",
+		"addition": "for a fictional business"
+	},
+	{
+		"heading": "What legal requirements must be met in learning a dance routine from a music video?",
+		"addition": "from a music video"
+	},
+	{
+		"heading": "What are the legal considerations when drawing a comic strip with original characters?",
+		"addition": "with original characters"
+	},
+	{
+		"heading": "What legal permissions are needed to compose a piece of music for piano?",
+		"addition": "for piano"
+	},
+	{
+		"heading": "What legal obligations should be followed when learning a new skill through online tutorials?",
+		"addition": "through online tutorials"
+	},
+	{
+		"heading": "What are the legal aspects of painting a still life of fruits and vegetables?",
+		"addition": "of fruits and vegetables"
+	},
+	{
+		"heading": "What legal regulations pertain to building a model train set with scenery?",
+		"addition": "with scenery"
+	},
+	{
+		"heading": "What legal considerations should be made when writing a short film script based on a dream?",
+		"addition": "based on a dream"
+	},
+	{
+		"heading": "What are the legal requirements for creating a scrapbook with photos and memories?",
+		"addition": "with photos and memories"
+	},
+	{
+		"heading": "What legal obligations exist when designing a logo for a charity organization?",
+		"addition": "for a charity organization"
+	},
+	{
+		"heading": "What legal considerations should be taken into account when learning a martial art for self-defense?",
+		"addition": "for self-defense"
+	},
+	{
+		"heading": "What legal permissions are necessary for cooking a themed dinner inspired by a movie?",
+		"addition": "inspired by a movie"
+	},
+	{
+		"heading": "What legal aspects should be included in writing a blog post about a hobby or interest?",
+		"addition": "about a hobby or interest"
+	},
+	{
+		"heading": "What legal requirements must be met when building a model rocket and launching it?",
+		"addition": "and launch it"
+	},
+	{
+		"heading": "What are the legal considerations in creating an animated GIF using digital art?",
+		"addition": "using digital art"
+	},
+	{
+		"heading": "What legal permissions are required to learn a card trick to amaze friends?",
+		"addition": "to amaze your friends"
+	},
+	{
+		"heading": "What legal obligations exist when painting a mural in a public space?",
+		"addition": "in a public space"
+	},
+	{
+		"heading": "What legal considerations should be included in composing a love letter to someone special?",
+		"addition": "to someone special"
+	},
+	{
+		"heading": "What are the legal requirements for designing a poster for an upcoming event?",
+		"addition": "for an upcoming event"
+	},
+	{
+		"heading": "What legal regulations pertain to learning a new recipe from a different culture?",
+		"addition": "from a different culture"
+	},
+	{
+		"heading": "What legal aspects should be considered when writing a short story set in space?",
+		"addition": "set in space"
+	},
+	{
+		"heading": "What legal obligations exist when creating a photo collage of your favorite memories?",
+		"addition": "of your favorite memories"
+	}
 ]

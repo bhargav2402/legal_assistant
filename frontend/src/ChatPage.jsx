@@ -18,7 +18,7 @@ function ChatPage() {
 
       try {
         const response = await axios.get(
-          "http://127.0.0.1:5000"
+          "http://127.0.0.1:5002"
         );
         console.log("response", response.data);
       } catch (error) {
@@ -34,7 +34,7 @@ function ChatPage() {
       setLoading(true); // Set loading state to true when sending a message
       try {
         const response = await axios.post(
-          "http://127.0.0.1:5000/api/chat",
+          "http://127.0.0.1:5002/api/chat",
           {
             userQuestion,
           }

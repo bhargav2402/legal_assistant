@@ -61,7 +61,7 @@ const Docs = () => {
 					</div>
 				))}
 			</div>
-			<div className="w-3/4 h-full p-3 overflow-y-hidden bg-gray-100 text-gray-900">
+			<div className="w-3/4 h-full p-3 overflow-y-auto bg-gray-100 text-gray-900">
 				{selectedCard ? (
 					<div className="">
 						<h3 className="text-3xl text-center border-b-2 pt-0 py-2 border-b-gray-700 justify-center font-semibold">
