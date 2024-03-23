@@ -12,6 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./components/Loading";
 import ImageAnalysis from "./ImageAnalysis";
 import Search from "./Search";
+import PredictionComponent from "./components/Prediction";
 
 const ProtectedRoute = ({ element }) => {
 	const { user } = useAuth0();
@@ -42,16 +43,20 @@ const AppRoutes = () => {
 			<Route path="/login" element={<Login />} />
 			<Route
 				path="/login2"
-				element={<ProtectedRoute element={<Login />} />}
+				element={<Login />} 
 			/>
 
 			<Route
 				path="/docs"
-				element={<ProtectedRoute element={<Docs />} />}
+				element={<Docs />} 
 			/>
 			<Route
 				path="/search"
 				element={<Search />} 
+			/>
+			<Route
+				path="/prediction"
+				element={<PredictionComponent />} 
 			/>
 			{/* <Route path="/contact" element={<Contact />} />
 			<Route
