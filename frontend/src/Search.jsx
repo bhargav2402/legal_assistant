@@ -7,14 +7,21 @@ function Document({ title, publishDate, headline }) {
 	return (
 		<div className="border border-gray-300 rounded-md p-4 mb-4">
 			<h2 className="text-lg font-semibold mb-2">
-				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer">
+				<a
+					href={googleSearchLink}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					{title}
 				</a>
 			</h2>
 			<p className="text-sm text-gray-600 mb-1">
 				<strong>Published Date:</strong> {publishDate}
 			</p>
-			<p className="text-base" dangerouslySetInnerHTML={{ __html: headline }}></p>
+			<p
+				className="text-base"
+				dangerouslySetInnerHTML={{ __html: headline }}
+			></p>
 		</div>
 	);
 }
@@ -33,7 +40,7 @@ function Search() {
 
 		try {
 			const response = await fetch(
-				"http://localhost:5000/api/search",
+				"http://localhost:5003/api/search",
 				{
 					method: "POST",
 					headers: {
@@ -55,19 +62,19 @@ function Search() {
 
 		try {
 			const response = await fetch(
-				"http://localhost:5000/api/search",
+				"http://localhost:5003/api/search",
 				{
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ formInput, pageNum: nextPageNum }), 
+					body: JSON.stringify({ formInput, pageNum: nextPageNum }),
 				}
 			);
 
 			const data = await response.json();
 			setDocs(data.docs);
-			setPageNum(nextPageNum); 
+			setPageNum(nextPageNum);
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
@@ -77,10 +84,15 @@ function Search() {
 		<div className="flex flex-col items-center bg-gray-100">
 			<div className="sticky top-0 z-50 bg-white py-2 w-full">
 				<div className="flex justify-center">
-					<h1 className="text-2xl font-bold mb-4">Search Documents</h1>
+					<h1 className="text-2xl font-bold mb-4">
+						Search Documents
+					</h1>
 				</div>
 				<div className="flex justify-center">
-					<form onSubmit={handleSearch} className="mb-4 w-full max-w-lg flex">
+					<form
+						onSubmit={handleSearch}
+						className="mb-4 w-full max-w-lg flex"
+					>
 						<input
 							type="text"
 							value={formInput}
@@ -117,7 +129,10 @@ function Search() {
 								Prev
 							</button>
 							<span className="mx-2">Page {pageNum}</span>
-							<button onClick={() => handlePageChange(1)} className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md">
+							<button
+								onClick={() => handlePageChange(1)}
+								className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md"
+							>
 								Next
 							</button>
 						</div>
