@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaUser } from "react-icons/fa"; // Importing icons for the user and AI
+import { FaUser } from "react-icons/fa"; 
 import { GiAtomicSlashes } from "react-icons/gi";
-import { AnimatePresence, motion } from "framer-motion"; // Importing AnimatePresence and motion
-import promptsData from "../prompts.json"; // Importing prompts data
+import { AnimatePresence, motion } from "framer-motion"; 
+import promptsData from "../prompts.json"; 
 
 const renderAIMessage = (message) => {
 	return message.split("\n\n").flatMap((paragraph, index) => (
@@ -16,9 +16,9 @@ const renderAIMessage = (message) => {
 	));
 };
 
-// Message component
+
 function Message({ author, content }) {
-	const Icon = author === "You" ? FaUser : GiAtomicSlashes; // Determine the icon based on the author
+	const Icon = author === "You" ? FaUser : GiAtomicSlashes; 
 
 	return (
 		<div
@@ -38,18 +38,18 @@ function Message({ author, content }) {
 	);
 }
 
-// ChatArea component
+
 export function ChatArea({
 	chatHistory,
 	loading,
 	setUserQuestion,
 	handleSend,
 }) {
-	const messagesEndRef = useRef(null); // Reference to the last message element
+	const messagesEndRef = useRef(null); 
 	const [randomPrompts, setRandomPrompts] = useState([]);
 
 	useEffect(() => {
-		// Select four random prompts from promptsData
+		
 		const shuffledPrompts = promptsData.sort(
 			() => 0.5 - Math.random()
 		);
@@ -67,14 +67,14 @@ export function ChatArea({
 	};
 
 	useEffect(() => {
-		scrollToBottom(); // Scroll to the bottom when component mounts or chatHistory updates
+		scrollToBottom(); 
 	}, [chatHistory]);
 
 	return (
 		<div className="flex-1 lg:mx-36 mx-5 overflow-y-auto p-4">
 			<AnimatePresence>
 				{!loading && chatHistory.length === 0 && (
-					// Render prompts if chat history is empty
+					
 					<div className="flex flex-col h-full items-center justify-between">
 						<div></div>
 						<div className="flex flex-col gap-6 items-center">
@@ -112,7 +112,7 @@ export function ChatArea({
 										className="text-sm lg:p-4 p-3 cursor-pointer transition-all duration-300 hover:shadow-md rounded-lg border border-gray-200"
 										onClick={() =>
 											handlePrompt(prompt.heading, prompt.addition)
-										} // Send the combined heading and addition when clicked
+										} 
 									>
 										<div className="font-semibold">
 											{prompt.heading}

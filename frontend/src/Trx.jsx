@@ -39,7 +39,6 @@ function Trx() {
 			<input type="file" onChange={handleFileChange} />
 			<select value={targetLanguage} onChange={handleLanguageChange}>
 				<option value="">Select Target Language</option>
-				{/* Add options for target languages */}
 			</select>
 			<button onClick={translateDocumentHandler}>
 				Translate Document

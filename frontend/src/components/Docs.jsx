@@ -3,7 +3,7 @@ import { AiOutlineFileSearch } from "react-icons/ai";
 import { FaClipboardCheck } from "react-icons/fa";
 import { TiDocumentAdd } from "react-icons/ti";
 import { AiOutlineTranslation } from "react-icons/ai";
-import ImageAnalysis from "../ImageAnalysis"; // Import the ImageAnalysis component
+import ImageAnalysis from "../ImageAnalysis"; 
 import DisplayOutput from "../DisplayOutput";
 import CompareAgg from "../CompareAgg";
 import ImageToTextConverter from "./Translate";
