@@ -7,8 +7,8 @@ function Document({ title, publishDate, headline }) {
 	return (
 		<div className="border border-gray-300 rounded-md p-4 mb-4">
 			<h2 className="text-lg text-blue-700 font-semibold mb-2">
-				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer">
-					{title}
+				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer"
+				dangerouslySetInnerHTML={{ __html: title }}>
 				</a>
 			</h2>
 			<p className="text-sm text-gray-600 mb-1">
@@ -25,7 +25,7 @@ function Document({ title, publishDate, headline }) {
 function Search() {
 	const [formInput, setFormInput] = useState("");
 	const [docs, setDocs] = useState([]);
-	const [pageNum, setPageNum] = useState(1); // State for current page number
+	const [pageNum, setPageNum] = useState(1);
 
 	const handleInputChange = (event) => {
 		setFormInput(event.target.value);
@@ -42,7 +42,7 @@ function Search() {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ formInput, pageNum }), // Include pageNum in the request
+					body: JSON.stringify({ formInput, pageNum }), 
 				}
 			);
 
