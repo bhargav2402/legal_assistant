@@ -23,7 +23,7 @@ export function MessageInput({
 					isSendDisabled ? "opacity-50 cursor-not-allowed" : ""
 				}`} 
 			>
-				<IoSendSharp size={17} /> {/* Send icon */}
+				<IoSendSharp size={19} />
 			</button>
 		</div>
 	);

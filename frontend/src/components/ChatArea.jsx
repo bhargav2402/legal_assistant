@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaUser } from "react-icons/fa"; 
+import { FaUser } from "react-icons/fa";
 import { GiAtomicSlashes } from "react-icons/gi";
-import { AnimatePresence, motion } from "framer-motion"; 
-import promptsData from "../prompts.json"; 
+import { AnimatePresence, motion } from "framer-motion";
+import promptsData from "../prompts.json";
 
 const renderAIMessage = (message) => {
 	return message.split("\n\n").flatMap((paragraph, index) => (
@@ -11,14 +11,12 @@ const renderAIMessage = (message) => {
 				<p key={i}>{line}</p>
 			))}
 			{index !== message.split("\n\n").length - 1 && <br />}{" "}
-			{/* Add <br /> if it's not the last paragraph */}
 		</React.Fragment>
 	));
 };
 
-
-function Message({ author, content }) {
-	const Icon = author === "You" ? FaUser : GiAtomicSlashes; 
+const Message = ({ author, content }) => {
+	const Icon = author === "You" ? FaUser : GiAtomicSlashes;
 
 	return (
 		<div
@@ -36,20 +34,18 @@ function Message({ author, content }) {
 			<p>{renderAIMessage(content)}</p>
 		</div>
 	);
-}
+};
 
-
-export function ChatArea({
+export const ChatArea = ({
 	chatHistory,
 	loading,
 	setUserQuestion,
 	handleSend,
-}) {
-	const messagesEndRef = useRef(null); 
+}) => {
+	const messagesEndRef = useRef(null);
 	const [randomPrompts, setRandomPrompts] = useState([]);
 
 	useEffect(() => {
-		
 		const shuffledPrompts = promptsData.sort(
 			() => 0.5 - Math.random()
 		);
@@ -67,14 +63,13 @@ export function ChatArea({
 	};
 
 	useEffect(() => {
-		scrollToBottom(); 
+		scrollToBottom();
 	}, [chatHistory]);
 
 	return (
 		<div className="flex-1 lg:mx-36 mx-5 overflow-y-auto p-4">
 			<AnimatePresence>
 				{!loading && chatHistory.length === 0 && (
-					
 					<div className="flex flex-col h-full items-center justify-between">
 						<div></div>
 						<div className="flex flex-col gap-6 items-center">
@@ -99,9 +94,8 @@ export function ChatArea({
 						</div>
 						<div className="grid grid-cols-1 md:grid-cols-2 w-full lg:grid-cols-2 gap-2">
 							{randomPrompts.map((prompt, index) => (
-								<AnimatePresence>
+								<AnimatePresence key={index}>
 									<motion.div
-										key={index}
 										initial={{ scale: 0 }}
 										animate={{ scale: 1 }}
 										exit={{ opacity: 0 }}
@@ -112,7 +106,7 @@ export function ChatArea({
 										className="text-sm lg:p-4 p-3 cursor-pointer transition-all duration-300 hover:shadow-md rounded-lg border border-gray-200"
 										onClick={() =>
 											handlePrompt(prompt.heading, prompt.addition)
-										} 
+										}
 									>
 										<div className="font-semibold">
 											{prompt.heading}
@@ -145,4 +139,4 @@ export function ChatArea({
 			></div>
 		</div>
 	);
-}
+};

@@ -1,4 +1,3 @@
-// src/Trx.js
 import React, { useState } from "react";
 import { translateDocument } from "@google-cloud/translate";
 

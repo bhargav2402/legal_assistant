@@ -36,7 +36,6 @@ function PredictionComponent() {
 			const result = await response.json();
 			setApiResponse(JSON.stringify(result, null, 2));
 			console.log(result);
-			// Extracting first value of scores and labels
 			const firstScoreValue = result.scores[0];
 			const firstLabelValue = result.labels[0];
 			return { firstScoreValue, firstLabelValue };
@@ -46,7 +45,10 @@ function PredictionComponent() {
 	};
 
 	const handleButtonClick = async () => {
-		const result1 = await queryAPI(["Case Accepted", "Case Rejected"]);
+		const result1 = await queryAPI([
+			"Case Accepted",
+			"Case Rejected",
+		]);
 		setFirstScore(result1.firstScoreValue);
 		setFirstLabel(result1.firstLabelValue);
 
