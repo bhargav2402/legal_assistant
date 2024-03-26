@@ -7,9 +7,12 @@ function Document({ title, publishDate, headline }) {
 	return (
 		<div className="border border-gray-300 rounded-md p-4 mb-4">
 			<h2 className="text-lg text-blue-700 font-semibold mb-2">
-				<a href={googleSearchLink} target="_blank" rel="noopener noreferrer"
-				dangerouslySetInnerHTML={{ __html: title }}>
-				</a>
+				<a
+					href={googleSearchLink}
+					target="_blank"
+					rel="noopener noreferrer"
+					dangerouslySetInnerHTML={{ __html: title }}
+				></a>
 			</h2>
 			<p className="text-sm text-gray-600 mb-1">
 				<strong>Published Date:</strong> {publishDate}
@@ -42,7 +45,7 @@ function Search() {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ formInput, pageNum }), 
+					body: JSON.stringify({ formInput, pageNum }),
 				}
 			);
 

@@ -1,9 +1,5 @@
-
-
-html, body {
-  overflow-y: scroll;
-  scrollbar-width: none;
+html,
+body {
+	overflow-y: scroll;
+	scrollbar-width: none;
 }
-
-
-

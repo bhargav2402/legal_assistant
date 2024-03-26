@@ -14,26 +14,25 @@ function Sidebar({
 
 	const toggleSidebar = () => {
 		setIsOpen(!isOpen);
-		setIsPressed(true); 
-		setTimeout(() => setIsPressed(false), 500); 
+		setIsPressed(true);
+		setTimeout(() => setIsPressed(false), 500);
 	};
 
 	const handleRefresh = () => {
-		window.location.reload(); 
+		window.location.reload();
 	};
 
 	useEffect(() => {
-		
 		const handleResize = () => {
 			if (window.innerWidth < 768) {
-				setIsOpen(false); 
+				setIsOpen(false);
 			}
 		};
 
-		handleResize(); 
+		handleResize();
 
-		window.addEventListener("resize", handleResize); 
-		return () => window.removeEventListener("resize", handleResize); 
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
 	return (
