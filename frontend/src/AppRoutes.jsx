@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Search from "./Search";
 import PredictionComponent from "./components/Prediction";
 import ChatPage from "./ChatPage";
+import ContactForm from "./components/Contact";
 
 const AppRoutes = () => {
 	return (
@@ -16,7 +17,7 @@ const AppRoutes = () => {
 				<Route path="/" element={<ChatPage />} />
 				{/* <Route path="/login" element={<Login />} /> */}
 				{/* <Route path="/login2" element={<Login />} /> */}
-
+				<Route path="/contact" element={<ContactForm />} />
 				<Route path="/docs" element={<Docs />} />
 				<Route path="/search" element={<Search />} />
 				<Route
