@@ -53,8 +53,7 @@ function ChatPage() {
 
 	return (
 		<div
-			className="flex flex-col h-screen"
-			style={{ marginTop: "64px" }}
+			className="flex flex-col h-[91.7vh]"
 		>
 			<div className="flex-1 flex">
 				<Sidebar

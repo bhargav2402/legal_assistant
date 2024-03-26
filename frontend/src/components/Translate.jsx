@@ -149,62 +149,73 @@ const ImageToTextConverter = () => {
 	};
 
 	return (
-		<div className="min-h-screen flex flex-col items-center justify-center bg-gray-200 text-gray-900">
-			<h1 className="text-3xl font-bold mb-8">
-				Language Translation
-			</h1>
-			<input
-				type="file"
-				onChange={analyzeImage}
-				accept=".jpg, .jpeg, .png"
-				className="mb-4"
-			/>
-			{output && (
-				<div className="mt-8 p-4 border border-gray-500 rounded">
-					<h2 className="text-xl font-bold mb-2">Extracted Text:</h2>
-					<ReactMarkdown>{output}</ReactMarkdown>
-					<div className="mt-4">
-						<label htmlFor="targetLang" className="font-bold mr-2">
-							Translate to:
-						</label>
-						<select
-							id="targetLang"
-							value={targetLang}
-							onChange={handleLanguageChange}
-							className="border border-gray-400 rounded p-1"
-						>
-							{supportedLanguages.map((lang) => (
-								<option key={lang.language} value={lang.language}>
-									{lang.name}
-								</option>
-							))}
-						</select>
-						<button
-							onClick={() =>
-								translateText(
-									output.replace(/`/g, ""),
-									"en",
-									targetLang
-								)
-							}
-							className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
-						>
-							Translate
-						</button>
-					</div>
-				</div>
-			)}
-			{translatedText && (
-				<div className="mt-8 p-4 border border-gray-500 rounded">
-					<h2 className="text-xl font-bold mb-2">
-						Translated Text:
-					</h2>
-					<ReactMarkdown>{`\`\`\`markdown\n${translatedText}\n\`\`\``}</ReactMarkdown>
-				</div>
-			)}
-			{error && <p className="text-red-500 mt-4">{error}</p>}
+		<div className="min-h-screen bg-gray-100 text-gray-800 flex flex-col items-center justify-center p-8">
+		<h1 className="text-4xl font-bold mb-4">Document Translation</h1>
+		<div className="bg-white rounded-lg shadow-md p-6 mb-8">
+		  <h2 className="text-2xl font-semibold mb-4">How to Use:</h2>
+		  <ol className="list-decimal list-inside">
+			<li>Upload an image containing text (e.g., a document, contract, or agreement).</li>
+			<li>Our AI will extract the text from the image using Optical Character Recognition (OCR).</li>
+			<li>The extracted text will be displayed in the output section.</li>
+			<li>Select the target language from the dropdown menu.</li>
+			<li>Click the "Translate" button to translate the extracted text to the selected language.</li>
+			<li>The translated text will be displayed in the "Translated Text" section.</li>
+		  </ol>
+		  <h2 className="text-2xl font-semibold mt-6 mb-4">Expected Output:</h2>
+		  <p>
+			Accurate translation of the extracted text from the uploaded image, including:
+		  </p>
+		  <ul className="list-disc list-inside">
+			<li>Preservation of formatting and layout</li>
+			<li>Correct translation of technical terms and legal jargon</li>
+			<li>Contextual understanding of the document's content</li>
+			<li>Availability in multiple languages</li>
+		  </ul>
 		</div>
+		<input
+		  type="file"
+		  onChange={analyzeImage}
+		  accept=".jpg, .jpeg, .png"
+		  className="mb-4 px-4 py-2 border border-gray-400 rounded-md"
+		/>
+		{output && (
+		  <div className="mt-8 p-6 bg-gray-300 rounded-md">
+			<h2 className="text-xl font-semibold mb-2">Extracted Text:</h2>
+			<ReactMarkdown>{output}</ReactMarkdown>
+			<div className="mt-4 flex items-center">
+			  <label htmlFor="targetLang" className="font-semibold mr-2">
+				Translate to:
+			  </label>
+			  <select
+				id="targetLang"
+				value={targetLang}
+				onChange={handleLanguageChange}
+				className="border border-gray-400 rounded p-1"
+			  >
+				{supportedLanguages.map((lang) => (
+				  <option key={lang.language} value={lang.language}>
+					{lang.name}
+				  </option>
+				))}
+			  </select>
+			  <button
+				onClick={() => translateText(output.replace(/`/g, ""), "en", targetLang)}
+				className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded ml-2 transition-colors duration-300"
+			  >
+				Translate
+			  </button>
+			</div>
+		  </div>
+		)}
+		{translatedText && (
+		  <div className="mt-8 p-6 bg-gray-300 rounded-md">
+			<h2 className="text-xl font-semibold mb-2">Translated Text:</h2>
+			<ReactMarkdown>{`\`\`\`markdown\n${translatedText}\n\`\`\``}</ReactMarkdown>
+		  </div>
+		)}
+		{error && <p className="text-red-500 mt-4">{error}</p>}
+	  </div>
 	);
-};
+  };
 
 export default ImageToTextConverter;
