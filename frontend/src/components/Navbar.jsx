@@ -1,34 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-
+import svg from "../assets/react.svg";
 const Navbar = () => {
-	const { user, isAuthenticated, isLoading } = useAuth0();
-
-	if (isLoading) {
-		return <div>Loading ...</div>;
-	}
-
-	if (!isAuthenticated) {
-		return (
-			<div className="flex justify-center items-center">
-				{!isAuthenticated && (
-					<div className="inline-block">
-						<Link
-							to="/login"
-							className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-						>
-							Log In
-						</Link>
-						<h1 className="inline-block ml-2">
-							You Need to Login first
-						</h1>
-					</div>
-				)}
-			</div>
-		);
-	}
-
 	return (
 		<nav className="navbar bg-gray-800 text-white w-full fixed top-0 z-50">
 			<div>
@@ -54,9 +27,9 @@ const Navbar = () => {
 								<span className="sr-only">Open user menu</span>
 								<img
 									className="w-8 h-8 rounded-full"
-									src={user.picture}
+									src={svg}
 									referrerPolicy="no-referrer"
-									alt={user.name}
+									alt="Name"
 								/>
 							</button>
 							{/* Dropdown menu */}
@@ -66,10 +39,10 @@ const Navbar = () => {
 							>
 								<div className="px-4 py-3">
 									<span className="block text-sm text-gray-900 dark:text-white">
-										{user.name}
+										{"Name"}
 									</span>
 									<span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-										{user.email}
+										{"test123@test.com"}
 									</span>
 								</div>
 								<ul
