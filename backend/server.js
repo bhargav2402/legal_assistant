@@ -5,16 +5,16 @@ const app = express();
 const PORT = process.env.PORT || 5003;
 
 app.use(express.json());
-app.use(cors()); 
+app.use(cors());
 
 app.post("/api/search", async (req, res) => {
-	const { formInput, pageNum } = req.body; 
+	const { formInput, pageNum } = req.body;
 
 	try {
 		const response = await fetch(
-			`https:
+			`https://api.indiankanoon.org/search/?formInput=${encodeURIComponent(
 				formInput
-			)}&pagenum=${pageNum}`, 
+			)}&pagenum=${pageNum}`,
 			{
 				method: "POST",
 				headers: {
