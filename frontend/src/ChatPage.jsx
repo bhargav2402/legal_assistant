@@ -31,7 +31,7 @@ function ChatPage() {
 
   const handleSend = async () => {
     if (userQuestion) {
-      setLoading(true); // Set loading state to true when sending a message
+      setLoading(true); 
       try {
         const response = await axios.post(
           "http://127.0.0.1:5002/api/chat",

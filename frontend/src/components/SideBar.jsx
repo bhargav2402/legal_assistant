@@ -14,26 +14,26 @@ function Sidebar({
 
 	const toggleSidebar = () => {
 		setIsOpen(!isOpen);
-		setIsPressed(true); // Set the pressed state to true when toggling the sidebar
-		setTimeout(() => setIsPressed(false), 500); // Reset the pressed state after 500ms
+		setIsPressed(true); 
+		setTimeout(() => setIsPressed(false), 500); 
 	};
 
 	const handleRefresh = () => {
-		window.location.reload(); // Refreshing the page
+		window.location.reload(); 
 	};
 
 	useEffect(() => {
-		// Check if the window width is less than a certain breakpoint (e.g., 768px for mobile devices)
+		
 		const handleResize = () => {
 			if (window.innerWidth < 768) {
-				setIsOpen(false); // Close the sidebar by default on mobile devices
+				setIsOpen(false); 
 			}
 		};
 
-		handleResize(); // Call the function initially to set the state based on the window width
+		handleResize(); 
 
-		window.addEventListener("resize", handleResize); // Listen for resize events
-		return () => window.removeEventListener("resize", handleResize); // Clean up the event listener
+		window.addEventListener("resize", handleResize); 
+		return () => window.removeEventListener("resize", handleResize); 
 	}, []);
 
 	return (
