@@ -5,8 +5,6 @@ import ErrorPage from "./ErrorPage";
 import Login from "./Login/Login";
 import Docs from "./components/Docs";
 import Navbar from "./components/Navbar";
-// import Contact from "./Contact";
-// import Dashv2 from "./MainDashboard/Dashv2";
 import { Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./components/Loading";
@@ -74,4 +72,4 @@ const AppRoutes = () => {
 
 export default AppRoutes;
 
-// YOUR_GOOGLE_API_KEY_HERE
+
