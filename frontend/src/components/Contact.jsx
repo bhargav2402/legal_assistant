@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useRef} from "react";
 import { FaEnvelope, FaEdit, FaCommentDots } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
@@ -35,7 +35,7 @@ function ContactForm() {
             Got a technical issue? Want to send feedback about a beta feature?
             Need details about our Business plan? Let us know.
           </p>
-          <form className="space-y-8">
+          <form className="space-y-8" onSubmit={sendEmail} ref={form}>
             <div>
               <div className="flex items-center mb-2">
                 <FaEnvelope size={24} className="text-orange-300 mr-2" />
@@ -50,7 +50,7 @@ function ContactForm() {
                 type="email"
                 id="email"
                 className="shadow-lg bg-gray-700 border border-gray-600 text-gray-300 text-lg rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                placeholder="name@flowbite.com"
+                placeholder="name@codecatalysts.com"
                 required
               />
             </div>

@@ -8,6 +8,7 @@ import Search from "./Search";
 import PredictionComponent from "./components/Prediction";
 import ChatPage from "./ChatPage";
 import ContactForm from "./components/Contact";
+import PDFProcessor from "./components/DocLLM";
 
 const AppRoutes = () => {
 	return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
 				<Route path="/contact" element={<ContactForm />} />
 				<Route path="/docs" element={<Docs />} />
 				<Route path="/search" element={<Search />} />
+				<Route path="/qna" element={<PDFProcessor />} />
 				<Route
 					path="/prediction"
 					element={<PredictionComponent />}
