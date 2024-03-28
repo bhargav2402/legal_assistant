@@ -3,6 +3,7 @@ import DisplayOutput from "../DisplayOutput";
 import CompareAgg from "../CompareAgg";
 import ImageToTextConverter from "./Translate";
 import ImageAnalysis from "../ImageAnalysis";
+import { FaFileAlt, FaFileContract, FaLanguage, FaImage } from "react-icons/fa";
 
 const Docs = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -16,74 +17,78 @@ const Docs = () => {
       id: 1,
       title: "Agreement Summary",
       description: (
-        <div className="text-gray-700">
-          <p className="mb-2">
-            <span className="font-bold">Unlock the power of NLP:</span> Gain
+        <div className="text-gray-100">
+          <p className="mb-2 text-gray-100">
+            <span className="font-bold text-orange-300">Unlock the power of NLP:</span> Gain
             comprehensive summaries of legal agreements, with key terms,
             clauses, and provisions highlighted.
           </p>
           <p>
-            <span className="font-bold">Streamline your workflow:</span> Save
+            <span className="font-bold text-orange-300">Streamline your workflow:</span> Save
             time by quickly understanding the essence of complex documents.
           </p>
         </div>
       ),
       content: <DisplayOutput />,
+      icon: <FaFileAlt size={32} className="text-orange-300" />,
     },
     {
       id: 2,
       title: "Compare Agreements",
       description: (
-        <div className="text-gray-700">
-          <p className="mb-2">
-            <span className="font-bold">Spot the differences:</span> Compare
+        <div className="text-gray-100">
+          <p className="mb-2 text-gray-100">
+            <span className="font-bold text-green-300">Spot the differences:</span> Compare
             multiple agreements side-by-side, identifying similarities,
             differences, and potential conflicts.
           </p>
           <p>
-            <span className="font-bold">Enhance your analysis:</span> Leverage
+            <span className="font-bold text-green-300">Enhance your analysis:</span> Leverage
             this powerful tool to ensure consistency and mitigate risks.
           </p>
         </div>
       ),
       content: <CompareAgg />,
+      icon: <FaFileContract size={32} className="text-green-300" />,
     },
     {
       id: 3,
       title: "Document Translation",
       description: (
-        <div className="text-gray-700">
-          <p className="mb-2">
-            <span className="font-bold">Break language barriers:</span>{" "}
+        <div className="text-gray-100">
+          <p className="mb-2 text-gray-100">
+            <span className="font-bold text-blue-300">Break language barriers:</span>{" "}
             Accurately translate legal documents between various languages,
             preserving technical terms and legal jargon.
           </p>
           <p>
-            <span className="font-bold">Expand your reach:</span> Collaborate
+            <span className="font-bold text-blue-300">Expand your reach:</span> Collaborate
             with global partners and clients without limitations.
           </p>
         </div>
       ),
       content: <ImageToTextConverter />,
+      icon: <FaLanguage size={32} className="text-blue-300" />,
     },
     {
       id: 4,
       title: "Image to Text",
       description: (
-        <div className="text-gray-700">
-          <p className="mb-2">
-            <span className="font-bold">Digitize with ease:</span> Extract text
+        <div className="text-gray-100">
+          <p className="mb-2 text-gray-100">
+            <span className="font-bold text-purple-300">Digitize with ease:</span> Extract text
             from images and PDF documents, enabling efficient data entry and
             digitization of paper-based legal documents.
           </p>
           <p>
-            <span className="font-bold">Streamline your workflow:</span>{" "}
+            <span className="font-bold text-purple-300">Streamline your workflow:</span>{" "}
             Transform physical documents into searchable, editable digital
             formats.
           </p>
         </div>
       ),
       content: <ImageAnalysis />,
+      icon: <FaImage size={32} className="text-purple-300" />,
     },
   ];
 
@@ -96,40 +101,42 @@ const Docs = () => {
   ];
 
   return (
-    <div className="flex max-h-[91.6vh] bg-gray-100 text-gray-800">
-      <div className="w-1/3 h-[91.5vh] bg-gray-200 p-3 overflow-y-hidden">
+    <div className="flex max-h-[91.7vh] bg-gray-800 text-gray-100">
+      <div className="w-1/3 h-[91.7vh] bg-gray-800 p-3 overflow-y-hidden">
         {cardData.map((card) => (
           <div
             key={card.id}
-            className={`mb-5 p-4 mt-2 cursor-pointer border border-gray-400 rounded-md transition-all duration-300 transform hover:scale-[1.02] ${
+            className={`mb-5 p-4 mt-2 cursor-pointer border border-gray-600 rounded-md transition-all duration-300 transform hover:scale-[1.02] ${
               selectedCard === card.id
-                ? "bg-gray-400 text-white shadow-md"
-                : "bg-white hover:bg-gray-200"
+                ? "bg-gray-700 text-white shadow-md"
+                : "bg-gray-600 hover:bg-gray-400 text-white"
             }`}
             onClick={() => handleCardClick(card.id)}
           >
-            <h3 className="text-xl font-semibold mb-2">
-              {card.title}
-            </h3>
+            <div className="flex items-center mb-2">
+              {card.icon}
+              <h3 className="text-xl font-semibold ml-2">{card.title}</h3>
+            </div>
             {card.description}
           </div>
         ))}
       </div>
-      <div className="w-2/3 p-6 overflow-y-auto bg-gray-100">
+      <div className="w-2/3 p-6 overflow-y-auto bg-gray-800">
         {selectedCard ? (
           <div className="transition-opacity duration-500">
-            {/* <h3 className="text-3xl text-center border-b-2 pt-0 py-2 border-b-gray-700 justify-center font-semibold text-gray-800">
-              {cardData.find((card) => card.id === selectedCard).title}
-            </h3> */}
             {cardData.find((card) => card.id === selectedCard).content}
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full">
-            <h2 className="text-2xl font-bold mb-4">Welcome to the Document Processing Tool</h2>
-            <p className="text-lg mb-4">Please select a tool from the left panel to get started.</p>
-            <div className="mt-4 p-6 w-full max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-              <h3 className="text-xl font-bold mb-2">Legal Tips:</h3>
-              <ul className="list-disc list-inside text-gray-700">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Welcome to the Document Processing Tool
+            </h2>
+            <p className="text-lg mb-4 text-gray-400">
+              Please select a tool from the left panel to get started.
+            </p>
+            <div className="mt-4 p-6 w-full max-w-md mx-auto bg-gray-600 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+              <h3 className="text-xl font-bold mb-2 text-white">Legal Tips:</h3>
+              <ul className="list-disc list-inside text-gray-300">
                 {legalTips.map((tip, index) => (
                   <li key={index}>{tip}</li>
                 ))}
