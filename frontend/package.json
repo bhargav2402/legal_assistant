@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@google-cloud/translate": "^8.1.0",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.20",

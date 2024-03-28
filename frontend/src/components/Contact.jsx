@@ -1,10 +1,32 @@
 import React from "react";
 import { FaEnvelope, FaEdit, FaCommentDots } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 function ContactForm() {
+	const form = useRef();
+
+	const sendEmail = async (e) => {
+		e.preventDefault();
+
+		try {
+			await emailjs
+				.sendForm(
+					"service_rjil8gm",
+					"template_vakpiby",
+					form.current,
+					"IWrb4kCihH8p7eTOA"
+				)
+				.then((result) => {
+					console.log(result.text);
+					form.current.reset();
+				}, 5000);
+		} catch (error) {
+			console.log(error);
+		}
+	};
   return (
     <>
-      <section className="bg-gray-800 h-[85.5vh] overflow-hidden text-gray-300">
+        <section className="bg-gray-800 h-[85.5vh] overflow-hidden text-gray-300">
         <div className="py-3 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 className="mb-2 text-4xl tracking-tight font-extrabold text-center text-white">
             Contact Us
@@ -82,6 +104,7 @@ function ContactForm() {
         </div>
       </footer>
     </>
+
   );
 }
 
