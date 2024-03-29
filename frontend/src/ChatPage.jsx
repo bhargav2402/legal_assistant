@@ -48,7 +48,7 @@ function ChatPage() {
   };
 
   return (
-    <div className="flex flex-col h-[91.7vh] bg-gray-800 text-gray-300">
+    <div className="flex flex-col h-[100vh] bg-gray-800 text-gray-300">
       <div className="flex-1 flex">
         <Sidebar
           model={model}

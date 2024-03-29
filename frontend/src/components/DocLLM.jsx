@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { FaUpload, FaFileUpload, FaPaperclip, FaPaperPlane } from 'react-icons/fa';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { FaUpload, FaFileUpload, FaPaperclip, FaPaperPlane, FaChevronLeft, FaChevronRight, FaArrowDown } from 'react-icons/fa';
+import { Document, Page } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const PDFProcessor = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -10,35 +15,63 @@ const PDFProcessor = () => {
   const [response, setResponse] = useState('');
   const [uploadMessage, setUploadMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [numPages, setNumPages] = useState(null);
+  const pdfContainerRef = useRef(null);
+  const componentRef = useRef(null);
+
+  useEffect(() => {
+    const componentElement = componentRef.current;
+    if (componentElement) {
+      componentElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, []);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setPdfFile(file);
-    setPdfPreview(file);
+    setPdfPreview(URL.createObjectURL(file));
   };
 
-  const renderPDF = (
-    <Document file={pdfPreview}>
-      {Array.from(new Array(numPages), (_, index) => (
-        <Page key={`page_${index + 1}`} pageNumber={index + 1} renderMode="canvas" />
-      ))}
-    </Document>
-  );
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < numPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   const handleUpload = async () => {
     if (!pdfFile) {
       setUploadMessage('Please select a PDF file.');
       return;
     }
+  
     const formData = new FormData();
     formData.append('pdf_file', pdfFile);
+  
     try {
-      await axios.post('http://localhost:5007/upload_pdf', formData);
-      setUploadMessage('PDF uploaded and processed successfully.');
+      const response = await axios.post('/upload_pdf', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      if (response.status === 200) {
+        setUploadMessage('PDF uploaded and processed successfully.');
+      } else {
+        setUploadMessage('Error uploading PDF. Please try again.');
+      }
     } catch (error) {
       console.error('Error uploading PDF:', error);
-      // Handle error
     }
   };
 
@@ -55,42 +88,75 @@ const PDFProcessor = () => {
       setQuestion('');
     } catch (error) {
       console.error('Error asking question:', error);
-      // Handle error
     }
   };
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const scrollToBottom = () => {
+    const pdfContainer = pdfContainerRef.current;
+    if (pdfContainer) {
+      pdfContainer.scrollTop = pdfContainer.scrollHeight;
+    }
   };
 
   return (
-    <div className="bg-gray-800 text-white min-h-[91.7vh] flex flex-col">
-      <div className="grid grid-cols-2 min-h-[90vh]">
-        <div className="p-8 flex flex-col border-r-2 border-gray-600 justify-center items-center">
-          <h1 className="text-3xl font-bold mb-4 flex items-center text-gray-200">
-            <FaFileUpload className="mr-2 text-blue-400" /> PDF Processor
-          </h1>
-          <div className="mb-4">
-            <label
-              htmlFor="file-upload"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md inline-flex items-center cursor-pointer"
-            >
-              <FaUpload className="mr-2" />
-              Upload PDF
-            </label>
-            <input id="file-upload" type="file" onChange={handleFileChange} accept=".pdf" className="hidden" />
-            {uploadMessage && <p className="text-green-500 mt-2">{uploadMessage}</p>}
+    <div className="bg-gray-800 text-white min-h-screen flex flex-col" ref={componentRef}>
+      <div className="grid grid-cols-2 flex-grow">
+        <div className="p-8 flex relative flex-col border-r-2 mb-2 border-gray-600 justify-between">
+          <div className="flex mx-auto flex-col items-center">
+            <div className="flex items-center mx-auto mb-4">
+              <h1 className="text-3xl font-bold flex mx-auto items-center text-gray-200">
+                <FaFileUpload className="mr-2 text-blue-400" /> PDF Processor
+              </h1>
+              {pdfPreview && (
+                <button
+                  onClick={handleUpload}
+                  htmlFor="file-upload"
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-md inline-flex items-center cursor-pointer ml-72"
+                >
+                  <FaUpload className="mr-2" />
+                  Analyze pdf
+                </button>
+              )}
+            </div>
+            {!pdfPreview && (
+              <div className="mb-4">
+                <label
+                  htmlFor="file-upload"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md inline-flex items-center cursor-pointer"
+                >
+                  <FaUpload className="mr-2" />
+                  Upload PDF
+                </label>
+                <input id="file-upload" type="file" onChange={handleFileChange} accept=".pdf" className="hidden" />
+                {uploadMessage && <p className="text-green-500 mt-2">{uploadMessage}</p>}
+              </div>
+            )}
           </div>
           {pdfPreview ? (
-            <div className="mb-4 max-h-full overflow-y-auto">
+            <div >
+                <div className="mb-2 w-5/6 mx-auto max-h-[79vh] overflow-y-auto" ref={pdfContainerRef}>
               <Document file={pdfPreview} onLoadSuccess={onDocumentLoadSuccess}>
-                {Array.from(new Array(numPages), (_, index) => (
-                  <Page key={`page_${index + 1}`} pageNumber={index + 1} renderMode="canvas" />
-                ))}
+                <Page pageNumber={currentPage} scale={1} />
               </Document>
+              </div>
+              <div className="flex items-center mb-2 justify-center mt-4">
+                <button
+                  className="bg-blue-600  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mr-2 "
+                  onClick={handlePrevPage}
+                >
+                  <FaChevronLeft className="mr-1" />
+                </button>
+                <span>{currentPage} / {numPages}</span>
+                <button
+                  className="bg-blue-600 ml-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md "
+                  onClick={handleNextPage}
+                >
+                  <FaChevronRight className="ml-1" />
+                </button>
+              </div>
             </div>
           ) : (
-            <div className="bg-gray-700 p-8 rounded-lg mb-4 max-w-2xl">
+            <div className="bg-gray-700 w-5/6 mx-auto my-auto  p-8 rounded-lg  max-w-2xl">
               <h2 className="text-2xl font-semibold mb-4 text-gray-300">Welcome to PDF Processor</h2>
               <p className="mb-4 text-gray-400">
                 This application allows you to upload a PDF file and ask questions about its content. The system will
@@ -107,12 +173,18 @@ const PDFProcessor = () => {
               </p>
             </div>
           )}
+          <button
+            onClick={scrollToBottom}
+            className="bg-blue-600 absolute bottom-2 hover:bg-blue-700 mb-2 text-white font-bold py-2 px-4 rounded-md self-start"
+          >
+            <FaArrowDown />
+          </button>
         </div>
-        <div className="p-8 flex flex-col h-[91.7vh] justify-center bg-gray-900">
+        <div className="p-8 flex flex-col justify-between h-full bg-gray-900">
           <h2 className="text-2xl font-bold mb-4 flex items-center text-gray-200">
             <FaPaperclip className="mr-2 text-blue-400" /> Ask a Question
           </h2>
-          <div className="bg-gray-800 p-6 rounded-lg mb-4 h-[90vh] overflow-y-auto flex-grow">
+          <div className="bg-gray-800 p-6 rounded-lg mb-4 flex-grow overflow-y-auto">
             {messages.length === 0 ? (
               <p className="text-gray-400 text-center">No questions asked yet.</p>
             ) : (

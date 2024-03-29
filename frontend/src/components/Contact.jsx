@@ -91,7 +91,7 @@ function ContactForm() {
             </div>
             <button
               type="submit"
-              className="py-1.5 px-5 flex m-auto bg-purple-600 hover:bg-purple-700 text-lg font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-purple-300"
+              className="py-1.5 px-5 flex m-auto bg-blue-600 hover:bg-blue-700 text-lg font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-purple-300"
             >
               Send message
             </button>
