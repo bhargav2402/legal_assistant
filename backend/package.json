@@ -1,5 +1,5 @@
 {
-  "proxy":"http://localhost:5173/",
+  "proxy": "http://localhost:5173/",
   "name": "backend",
   "version": "1.0.0",
   "description": "",
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.1"
+    "express": "^4.19.1",
+    "multer": "^1.4.5-lts.1"
   }
 }
