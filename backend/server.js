@@ -2,34 +2,34 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5003;
-const multer = require('multer');
-const path = require('path');
+// const multer = require('multer');
+// const path = require('path');
 
 
-// Set up Multer storage configuration
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Specify the directory where you want to store the uploaded files
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`); // Construct a unique filename for the uploaded file
-  },
-});
+// // Set up Multer storage configuration
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'uploads/'); // Specify the directory where you want to store the uploaded files
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, `${Date.now()}-${file.originalname}`); // Construct a unique filename for the uploaded file
+//   },
+// });
 
-// Initialize Multer with the storage configuration
-const upload = multer({ storage });
+// // Initialize Multer with the storage configuration
+// const upload = multer({ storage });
 
-// Route to handle the PDF file upload
-app.post('/upload_pdf', upload.single('pdf_file'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-  }
+// // Route to handle the PDF file upload
+// app.post('/upload_pdf', upload.single('pdf_file'), (req, res) => {
+//   if (!req.file) {
+//     return res.status(400).json({ error: 'No file uploaded' });
+//   }
 
-  // Do something with the uploaded file, e.g., send it to the backend
-  console.log('File uploaded:', req.file.path);
+//   // Do something with the uploaded file, e.g., send it to the backend
+//   console.log('File uploaded:', req.file.path);
 
-  res.status(200).json({ message: 'File uploaded successfully' });
-});
+//   res.status(200).json({ message: 'File uploaded successfully' });
+// });
 
 
 app.use(express.json());

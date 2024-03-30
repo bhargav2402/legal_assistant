@@ -59,7 +59,7 @@ const PDFProcessor = () => {
     formData.append('pdf_file', pdfFile);
   
     try {
-      const response = await axios.post('/upload_pdf', formData, {
+      const response = await axios.post('http://127.0.0.1:5000/upload_pdf', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -82,14 +82,22 @@ const PDFProcessor = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:5007/ask', { question });
+      const response = await axios.post('http://127.0.0.1:5000/ask', { question }); 
       setResponse(response.data.answer);
       setMessages((prevMessages) => [...prevMessages, { question, answer: response.data.answer }]);
       setQuestion('');
     } catch (error) {
-      console.error('Error asking question:', error);
+      if (error.response) {
+        console.error('Server Error:', error.response.data);
+      } else if (error.request) {
+        console.error('No Response from Server:', error.request);
+      } else {
+        console.error('Error:', error.message);
+      }
     }
   };
+  
+  
 
   const scrollToBottom = () => {
     const pdfContainer = pdfContainerRef.current;
