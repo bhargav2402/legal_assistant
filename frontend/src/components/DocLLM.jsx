@@ -188,7 +188,7 @@ const PDFProcessor = () => {
             <FaArrowDown />
           </button>
         </div>
-        <div className="p-8 flex flex-col justify-between h-full bg-gray-900">
+        <div className="p-8 flex flex-col justify-between max-h-[100vh] overflow-y-auto bg-gray-900">
           <h2 className="text-2xl font-bold mb-4 flex items-center text-gray-200">
             <FaPaperclip className="mr-2 text-blue-400" /> Ask a Question
           </h2>
@@ -201,7 +201,7 @@ const PDFProcessor = () => {
                   <div className="bg-gray-700 p-2 rounded-md mb-2">
                     <span className="font-semibold text-gray-300">Question:</span> {msg.question}
                   </div>
-                  <div className={`bg-gray-700 p-2 rounded-md ${index % 2 === 0 ? 'text-blue-400' : 'text-green-400'}`}>
+                  <div className={`bg-gray-700 p-2 rounded-md ${index % 2 === 0 ? 'text-blue-400' : 'text-blue-400'}`}>
                     <span className="font-semibold text-gray-300">Answer:</span> {msg.answer}
                   </div>
                 </div>
