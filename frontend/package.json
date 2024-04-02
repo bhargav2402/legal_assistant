@@ -12,13 +12,16 @@
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "@google-cloud/translate": "^8.1.0",
+    "@react-pdf/renderer": "^3.4.2",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.20",
     "groq-sdk": "^0.3.2",
+    "pdfjs-dist": "^4.0.379",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-markdown": "^9.0.1",
+    "react-pdf": "^7.7.1",
     "react-router-dom": "^6.22.3",
     "react-spinners": "^0.13.8"
   },
