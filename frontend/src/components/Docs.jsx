@@ -51,25 +51,25 @@ const Docs = () => {
       content: <CompareAgg />,
       icon: <FaFileContract size={32} className="text-green-300" />,
     },
-    {
-      id: 3,
-      title: "Document Translation",
-      description: (
-        <div className="text-gray-100">
-          <p className="mb-2 text-gray-100">
-            <span className="font-bold text-blue-300">Break language barriers:</span>{" "}
-            Accurately translate legal documents between various languages,
-            preserving technical terms and legal jargon.
-          </p>
-          <p>
-            <span className="font-bold text-blue-300">Expand your reach:</span> Collaborate
-            with global partners and clients without limitations.
-          </p>
-        </div>
-      ),
-      content: <ImageToTextConverter />,
-      icon: <FaLanguage size={32} className="text-blue-300" />,
-    },
+    // {
+    //   id: 3,
+    //   title: "Document Translation",
+    //   description: (
+    //     <div className="text-gray-100">
+    //       <p className="mb-2 text-gray-100">
+    //         <span className="font-bold text-blue-300">Break language barriers:</span>{" "}
+    //         Accurately translate legal documents between various languages,
+    //         preserving technical terms and legal jargon.
+    //       </p>
+    //       <p>
+    //         <span className="font-bold text-blue-300">Expand your reach:</span> Collaborate
+    //         with global partners and clients without limitations.
+    //       </p>
+    //     </div>
+    //   ),
+    //   content: <ImageToTextConverter />,
+    //   icon: <FaLanguage size={32} className="text-blue-300" />,
+    // },
     {
       id: 4,
       title: "Image to Text",

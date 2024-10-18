@@ -137,14 +137,22 @@ const Navbar = () => {
                     Prediction
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     to="/qna"
                     className="block py-2 px-3 text-white rounded hover:bg-gray-700"
                   >
                     DocLLM
                   </Link>
-                </li>
+                </li> */}
+                {/* <li>
+                  <Link
+                    to="/gen"
+                    className="block py-2 px-3 text-white rounded hover:bg-gray-700"
+                  >
+                    Generate Doc
+                  </Link>
+                </li> */}
                 <li>
                   <Link
                     to="/contact"

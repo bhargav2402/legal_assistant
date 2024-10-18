@@ -19,7 +19,7 @@ function CompareAgg() {
      const base64Image1 = await convertImageToBase64(image1);
      const base64Image2 = await convertImageToBase64(image2);
      const response = await axios.post(
-       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro-vision-latest:generateContent?key=${API_KEY}`,
+       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-002:generateContent?key=${API_KEY}`,
        {
          contents: [
            {

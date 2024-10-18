@@ -21,7 +21,7 @@ const Message = ({ author, content }) => {
 	return (
 		<div
 			className={`mb-2 rounded p-5 ${
-				author === "You" ? "bg-gray-50" : "bg-gray-100/40"
+				author === "You" ? "bg-gray-100/40" : "bg-gray-100/40"
 			}`}
 		>
 			<div className="font-bold flex items-center gap-2 text-xl">
@@ -130,7 +130,7 @@ export const ChatArea = ({
 			))}
 			{loading && (
 				<div className="flex justify-center mt-2">
-					<div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-black"></div>
+					<div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
 				</div>
 			)}
 			<div

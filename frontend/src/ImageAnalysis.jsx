@@ -16,7 +16,7 @@ function ImageAnalysis() {
    try {
      const base64Image = await convertImageToBase64(file);
      const response = await axios.post(
-       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro-vision-latest:generateContent?key=YOUR_GOOGLE_API_KEY_HERE`,
+       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-002:generateContent?key=YOUR_GOOGLE_API_KEY_HERE`,
        {
          contents: [
            {
